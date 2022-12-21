@@ -53,7 +53,7 @@ for filename in os.listdir(directory):
     # ------------------------------------------ #
     #                 Loop CSV  for values       #
     # ------------------------------------------ #
-    with open(f, 'rt', encoding='UTF8') as csvFile: 
+    with open(f, 'rt', encoding='utf-8') as csvFile: 
         print("file being processed: ", f)
         datareader = csv.reader(csvFile, delimiter=',')
         next(datareader)
@@ -81,7 +81,7 @@ for filename in os.listdir(directory):
 
                 # DateTime
                 elif (fileMap[key] == "datetime"):
-                        valuesList.append(column)
+                    valuesList.append(column)
 
         values.append(tuple(valuesList))
 
