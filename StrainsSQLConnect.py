@@ -69,7 +69,7 @@ for filename in os.listdir(directory):
                 elif (fileMap[key] == "int"):
                         valuesList.append(column)
                                     
-                # Varchar
+                # Varchar, converting from boo to a meaningful string
                 elif (fileMap[key] == "varchar"):     
                     if (key == 'status'):
                         if (column == '\'False\''):
