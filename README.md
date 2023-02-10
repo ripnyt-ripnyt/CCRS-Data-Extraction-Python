@@ -2,11 +2,19 @@
 Reconstruction of WA's Cannabis Data
 ---
 
-This is a project which I'm using to learn python, mysql, and methods to handle 150M+ lines of raw, TSV data with challenging encoding and types.
+CCRS-Python-MySQL is a few python scripts which takes the raw [CCRS](https://lcb.wa.gov/ccrs) .zip download from a public records request and converts it from a rather dirty dataset to a somewhat usable set of csv with up to 1,000,000 lines each.
 
-The repo is currenly in rough shape, so here's what's going on:
+I'm using this learn python, mysql, and methods to handle 150M+ lines of raw, TSV data with challenging encoding and types. As I'm learning the code has been refactored to several times but here's my best shot so far.
 
-Use the dataCleanup.py file to process the raw files from TSV, UTF-16-LE with many non-ASCII characters to a list of tuples for use with the most recent sql connection, 
-StrainsSQLConnect.py.
+## How to use
+---
 
-Plan on adding these two files together when done debugging.
+There are two scripts one which inflates the zip and removes the folder hierarchy `inflate.py` and the other standardizes the row width `columnStandardization.py`.
+
+Both read files from one directory and then writes to a new directory without compression. The CCRS data in csv form is 23 gb at this time, so be careful with disk space.
+
+## Known Issues with the scripts and output data
+---
+No Compression, slow, and could possibly be changed to write to compression. Data will have issues too, the size of the dataset means that I haven't been able to confirm that my column standardization method is perfect.
+
+`InventoryAdjustment_0.csv` seems to have particular encoding issues.
